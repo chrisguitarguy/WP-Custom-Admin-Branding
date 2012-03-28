@@ -38,7 +38,8 @@ class Custom_Admin_Branding
                 'login_title'       => get_bloginfo( 'site_name' ),
                 'designer_url'      => false,
                 'designer_anchor'   => false,
-                'favicon_url'       => false
+                'favicon_url'       => false,
+                'remove_wp'         => false
             )
         );
 
@@ -49,6 +50,7 @@ class Custom_Admin_Branding
         add_action( 'login_footer', array( &$this, 'login_footer' ) );
         add_action( 'admin_head', array( &$this, 'add_favicon' ) );
         add_action( 'wp_head', array( &$this, 'add_favicon' ) );
+        add_action( 'admin_bar_menu', array( &$this, 'admin_bar_menu' ) );
     }
 
     /**
@@ -132,6 +134,17 @@ class Custom_Admin_Branding
             array_unshift( $text_arr, $designer );
         }
         return implode( ' &bull; ', $text_arr );
+    }
+
+    /**
+     * Maybe removes the "W" logo from the admin menu
+     *
+     * @access public
+     */
+    public function admin_bar_menu( $admin_bar )
+    {
+        if( ! $this->args['remove_wp'] ) return;
+        $admin_bar->remove_node( 'wp-logo' );
     }
 
     /**

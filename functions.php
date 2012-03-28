@@ -9,6 +9,7 @@ new Custom_Admin_Branding( array(
     'login_title'     => 'This is a title',
     'designer_url'    => 'http://christopherdavis.me',
     'designer_anchor' => 'Christopher Davis',
-    'favicon_url'     => 'http://placebear.com/16/16'
+    'favicon_url'     => 'http://placebear.com/16/16',
+    'remove_wp'       => true
 ) );
 
