@@ -32,6 +32,7 @@ Next up, drop a few lines of code in your `functions.php`.
 
     <?php
     // somewhere in `functions.php`
+    require_once( trailingslashit( dirname( __FILE__ ) ) . 'branding/branding.php' );
 
     // Create a new instance of the `Custom_Admin_Branding` class
     // Pass in whatever values you want (see the "Arguments" section below)
@@ -54,6 +55,10 @@ Next up, drop a few lines of code in your `functions.php`.
 * `designer_anchor` - Anchor text for the credit link.
 * `favicon_url` - The favicon to be added on the login and admin pages and on the front end.
 * `remove_wp` - Remove the WordPress drop down from the admin menu bar if set to true. The Default is false.
+
+### Example
+
+Check out the [theme branch](https://github.com/chrisguitarguy/WP-Custom-Admin-Branding/tree/theme) for an example.
 
 ## License
 
