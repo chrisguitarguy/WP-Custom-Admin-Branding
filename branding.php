@@ -50,7 +50,7 @@ class Custom_Admin_Branding
         add_action( 'login_footer', array( &$this, 'login_footer' ) );
         add_action( 'admin_head', array( &$this, 'add_favicon' ) );
         add_action( 'wp_head', array( &$this, 'add_favicon' ) );
-        add_action( 'admin_bar_menu', array( &$this, 'admin_bar_menu' ) );
+        add_action( 'admin_bar_menu', array( &$this, 'admin_bar_menu' ), 25 );
     }
 
     /**
@@ -144,6 +144,7 @@ class Custom_Admin_Branding
     public function admin_bar_menu( $admin_bar )
     {
         if( ! $this->args['remove_wp'] ) return;
+        print_r( $admin_bar->get_nodes() );
         $admin_bar->remove_node( 'wp-logo' );
     }
 
