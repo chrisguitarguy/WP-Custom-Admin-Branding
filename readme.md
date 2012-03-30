@@ -51,6 +51,8 @@ Next up, drop a few lines of code in your `functions.php`.
 * `login_url` - Where would you like the logo above the login form to link? Defaults to wordpress.org
 * `login_image` - What will replace the WordPress logo on the login page.
 * `login_title` - The title attribute on the logo link on the login page.
+* `login_height` - Height of the login logo image.
+* `login_width` - Width of the login login logo image. ~320px is recommended. Defaults to 326px.
 * `designer_url` - Used in the credit link on the login and admin pages. Your website!
 * `designer_anchor` - Anchor text for the credit link.
 * `favicon_url` - The favicon to be added on the login and admin pages and on the front end.

@@ -39,6 +39,8 @@ class Custom_Admin_Branding
      * The args
      *      `login_link` - The link on the login image
      *      `login_image` - URI for the image above the login form
+     *      `login_heigth` - Height of the image above the login form
+     *      `login_width` - Width of the image above the login form
      *      `designer_link` - URI for the login & admin footer credit link
      *      `designer_anchor` - Anchor text for login & admin footer credit link
      *      `favicon_url` - The favicon URI, added to the admin, login, & front end
@@ -53,6 +55,8 @@ class Custom_Admin_Branding
                 'login_url'         => 'http://wordpress.org',
                 'login_image'       => false,
                 'login_title'       => get_bloginfo( 'site_name' ),
+                'login_height'      => '67px',
+                'login_width'       => '326px',
                 'designer_url'      => false,
                 'designer_anchor'   => false,
                 'favicon_url'       => false,
@@ -102,8 +106,10 @@ class Custom_Admin_Branding
         if( $this->args['login_image'] )
         {
             printf(
-                ".login h1 a { background: url(%s) no-repeat top center; }\n",
-                esc_url( $this->args['login_image'] )
+                ".login h1 a { background: url(%s) no-repeat top center; height: %s; width: %s }\n",
+                esc_url( $this->args['login_image'] ),
+                $this->args['login_height'],
+                $this->args['login_width']
             );
         }
         echo '.custom-login-branding { text-align: center; margin-top: 100px }';
@@ -161,7 +167,6 @@ class Custom_Admin_Branding
     public function admin_bar_menu( $admin_bar )
     {
         if( ! $this->args['remove_wp'] ) return;
-        print_r( $admin_bar->get_nodes() );
         $admin_bar->remove_node( 'wp-logo' );
     }
 
