@@ -161,7 +161,6 @@ class Custom_Admin_Branding
     public function admin_bar_menu( $admin_bar )
     {
         if( ! $this->args['remove_wp'] ) return;
-        print_r( $admin_bar->get_nodes() );
         $admin_bar->remove_node( 'wp-logo' );
     }
 
