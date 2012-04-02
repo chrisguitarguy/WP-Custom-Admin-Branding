@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Custom WordPress Admin Branding by chrisguitarguy</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Custom WordPress Admin Branding</h1>
+        <p>A little library that allows you to brand the WordPress login, add favicons, and add links to the login and admin footers.</p>
+        <p class="view"><a href="https://github.com/chrisguitarguy/WP-Custom-Admin-Branding">View the Project on GitHub <small>chrisguitarguy/WP-Custom-Admin-Branding</small></a></p>
+        <ul>
+          <li><a href="https://github.com/chrisguitarguy/WP-Custom-Admin-Branding/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/chrisguitarguy/WP-Custom-Admin-Branding/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/chrisguitarguy/WP-Custom-Admin-Branding">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>A class to allow theme/plugin developers to easily brand the WordPress login and admin screens</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Change the login page logo</li>
+<li>Change the login page logo link URL and title attribute</li>
+<li>Add a designer credit to the login page and admin footer</li>
+<li>Remove the built in WordPress menu item from the admin menu bar</li>
+<li>Add a favicon to the login, admin and front end of the site</li>
+</ul><h2>Who This is For</h2>
+
+<p>This is for developers producing custom WordPress themes, plugins, or managed solutions for clients.</p>
+
+<p>This class is not meant to be used in plugins or themes making their way into the WordPress repo.  Unless, of course, you want to make a plugin to allow users to change their own login and admin branding.</p>
+
+<p>Clients like seeing their names and logos on things. The above features seems to have made some of my own clients happy, so I thought I'd share them!</p>
+
+<h2>Usage</h2>
+
+<p>First, grab the code.  You can do this with git:</p>
+
+<pre><code>$ cd /your/theme/directory
+$ git clone git://github.com/chrisguitarguy/WP-Custom-Admin-Branding.git branding
+</code></pre>
+
+<p>Or you can download the <a href="https://github.com/chrisguitarguy/WP-Custom-Admin-Branding/zipball/master">zipball</a>.</p>
+
+<p>Next up, drop a few lines of code in your <code>functions.php</code>.</p>
+
+<pre><code>&lt;?php
+// somewhere in `functions.php`
+require_once( trailingslashit( dirname( __FILE__ ) ) . 'branding/branding.php' );
+
+// Create a new instance of the `Custom_Admin_Branding` class
+// Pass in whatever values you want (see the "Arguments" section below)
+new Custom_Admin_Branding( array( 
+    'login_url'       =&gt; '<a href="http://example.com">http://example.com</a>', 
+    'login_image'     =&gt; '<a href="http://placebear.com/273/63">http://placebear.com/273/63</a>',
+    'login_title'     =&gt; 'This is a title',
+    'designer_url'    =&gt; '<a href="http://christopherdavis.me">http://christopherdavis.me</a>',
+    'designer_anchor' =&gt; 'Christopher Davis',
+    'favicon_url'     =&gt; '<a href="http://placebear.com/16/16">http://placebear.com/16/16</a>',
+    'remove_wp'       =&gt; true
+) );
+</code></pre>
+
+<h3>Arguments</h3>
+
+<ul>
+<li>
+<code>login_url</code> - Where would you like the logo above the login form to link? Defaults to wordpress.org</li>
+<li>
+<code>login_image</code> - What will replace the WordPress logo on the login page.</li>
+<li>
+<code>login_title</code> - The title attribute on the logo link on the login page.</li>
+<li>
+<code>login_height</code> - Height of the login logo image.</li>
+<li>
+<code>login_width</code> - Width of the login login logo image. ~320px is recommended. Defaults to 326px.</li>
+<li>
+<code>designer_url</code> - Used in the credit link on the login and admin pages. Your website!</li>
+<li>
+<code>designer_anchor</code> - Anchor text for the credit link.</li>
+<li>
+<code>favicon_url</code> - The favicon to be added on the login and admin pages and on the front end.</li>
+<li>
+<code>remove_wp</code> - Remove the WordPress drop down from the admin menu bar if set to true. The Default is false.</li>
+</ul><h3>Example</h3>
+
+<p>Check out the <a href="https://github.com/chrisguitarguy/WP-Custom-Admin-Branding/tree/theme">theme branch</a> for an example.</p>
+
+<h2>License</h2>
+
+<p>GPLv2, just like WordPress.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/chrisguitarguy">chrisguitarguy</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
